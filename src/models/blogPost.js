@@ -10,8 +10,8 @@ module.exports = (Sequelize, DataTypes) => {
   });
 
   PostsTable.associate = (models) => {
-    UserTable.hasMany(models.User, {
-      foreignKey: 'user_id',
+    PostsTable.hasMany(models.User, {
+      foreignKey: 'id',
       as: 'posts_user'
     });
   };

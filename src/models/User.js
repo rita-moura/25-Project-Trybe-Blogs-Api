@@ -1,14 +1,17 @@
 module.exports = (Sequelize, DataTypes) => {
   const UserTable = Sequelize.define('User', {
-    id: DataTypes.INTEGER,
+    id: {
+      type: DataTypes.INTEGER,
+      primaryKey: true,
+    },
     displayName: DataTypes.STRING,
     email: DataTypes.STRING,
     password: DataTypes.STRING,
     image: DataTypes.STRING
   }, {
     tableName: 'users',
-    underscored: true,
     timestamps: false,
+    underscored: true,
   });
 
   UserTable.associate = (models) => {
