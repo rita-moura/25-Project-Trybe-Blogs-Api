@@ -1,6 +1,6 @@
 const express = require('express');
 const errorHandler = require('./middlewares/errorHandler');
-const { loginRouter } = require('./routers');
+const { loginRouter, userRouter } = require('./routers');
 const { isValidLogin } = require('./middlewares/verifyLogin');
 
 // ...
@@ -16,6 +16,7 @@ app.use(express.json());
 
 // ...
 app.use('/login', isValidLogin, loginRouter.router);
+app.use('/user', userRouter.router);
 
 app.use(errorHandler);
 // É importante exportar a constante `app`,
