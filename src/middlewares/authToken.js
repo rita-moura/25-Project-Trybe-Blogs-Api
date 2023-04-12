@@ -2,7 +2,7 @@ const { validateToken } = require('../utils/auth');
 
 const authToken = (req, res, next) => {
   const { authorization } = req.headers;
-  if (!authorization) res.status(401).json({ message: 'Token not found' });
+  if (!authorization) return res.status(401).json({ message: 'Token not found' });
   try {
     validateToken(authorization);
   

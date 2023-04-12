@@ -13,6 +13,11 @@ const userSchema = Joi.object({
 
 const validetionUser = (user) => userSchema.validate(user);
 
+const nameSchema = Joi.string().min(2).required().label('name');
+
+const validetionCategory = (name) => nameSchema.validate(name);
+
 module.exports = {
-  validetionUser, 
+  validetionUser,
+  validetionCategory, 
 };
