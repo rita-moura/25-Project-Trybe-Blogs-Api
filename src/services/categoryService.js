@@ -1,6 +1,6 @@
 const { Category } = require('../models');
 const statusError = require('../utils/statusError');
-const { validetionCategory } = require('./schemas/userSchema');
+const { validetionCategory } = require('./schemas/categorySchema');
 
 const create = async (name) => {
   const { error } = validetionCategory(name);

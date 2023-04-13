@@ -8,13 +8,12 @@ module.exports = (sequelize, DataTypes) => {
     title: DataTypes.STRING,
     content: DataTypes.STRING,
     userId: DataTypes.INTEGER,
-    categoryId: DataTypes.INTEGER,
     published: DataTypes.BOOLEAN,
     updated: DataTypes.INTEGER,
   }, {
     tableName: 'blog_posts',
     underscored: true,
-    timestamps:false
+    timestamps: false,
   });
 
   BlogPostTable.associate = (models) => {
