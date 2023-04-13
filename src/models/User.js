@@ -1,8 +1,10 @@
-module.exports = (Sequelize, DataTypes) => {
-  const UserTable = Sequelize.define('User', {
+module.exports = (sequelize, DataTypes) => {
+  const UserTable = sequelize.define('User', {
     id: {
       type: DataTypes.INTEGER,
       primaryKey: true,
+      autoIncrement: true,
+      allowNull: false,
     },
     displayName: DataTypes.STRING,
     email: DataTypes.STRING,
@@ -15,9 +17,9 @@ module.exports = (Sequelize, DataTypes) => {
   });
 
   UserTable.associate = (models) => {
-    UserTable.hasMany(models.Posts, {
-      foreignKey: 'user_id',
-      as: 'posts_user'
+    UserTable.hasMany(models.BlogPost, {
+      foreignKey: 'userId',
+      as: 'blogPost'
     });
   };
 
