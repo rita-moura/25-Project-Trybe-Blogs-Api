@@ -12,7 +12,14 @@ module.exports = {
       name: {
         type: Sequelize.STRING,
         allowNull: false,
-      }
+      },
+      post_id: {
+        type: Sequelize.INTEGER,
+        references: {
+          model: 'blog_posts',
+          key: 'id',
+        }
+      },
     });
   },
 

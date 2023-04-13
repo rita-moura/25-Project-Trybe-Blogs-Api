@@ -24,6 +24,13 @@ module.exports = {
           key: 'id',
         }
       },
+      category_id: {
+        type: Sequelize.INTEGER,
+        references: {
+          model: 'categories',
+          key: 'id',
+        }
+      },
       published: {
         type: Sequelize.DATE,
         allowNull: false,
