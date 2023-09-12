@@ -1,10 +1,15 @@
 const categoryService = require('./categoryService');
 const { BlogPost, User, Category } = require('../models');
+const statusError = require('../utils/statusError');
 
 const create = async ({ title, content, categoryIds }) => {
   const categories = await categoryService.getAll();
-  console.log(categories);
 
+  const categoryId = categories.map((category) => category.id);
+  const postIncludeId = categoryIds.every((ids) => categoryId.includes(ids));
+
+  if (!postIncludeId) throw statusError(400, 'one or more "categoryIds" not found');
+  
   const newPost = await BlogPost.create({ title, content, categoryIds });
 
   return newPost;
